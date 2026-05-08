@@ -14,8 +14,12 @@ const app = new Hono();
 // In local dev it falls back to the Vite dev server address.
 app.use("/api/*", cors({
   origin: (origin, c) => {
-    const allowed = c.env.CLIENT_URL || "http://localhost:5173";
-    return origin === allowed ? origin : allowed;
+    const allowed = [
+      "http://localhost:5173",
+      "http://localhost:8787",
+      c.env.CLIENT_URL,
+    ].filter(Boolean);
+    return allowed.includes(origin) ? origin : allowed[0];
   },
   allowMethods: ["GET", "POST", "OPTIONS"],
   allowHeaders: ["Content-Type"],
