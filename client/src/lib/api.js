@@ -3,7 +3,9 @@
 // we only have to update it in one spot.
 
 // Base URL prefix — Vite proxies /api to the worker in development.
-const BASE = "/api";
+const BASE = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : "/api";
 
 /**
  * fetchCharacters

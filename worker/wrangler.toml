@@ -7,9 +7,9 @@ binding = "DB"
 database_name = "dccdle-db"
 database_id = "f0c7b3c6-5659-4bf8-9538-c5dcf1dfe403"
 
-[vars]
-CLIENT_URL = "http://localhost:5173"
+# [vars]
+# CLIENT_URL = "http://localhost:5173"
 
 # Uncomment and set after deploying Cloudflare Pages
-# [env.production.vars]
-# CLIENT_URL = "https://dccdle.pages.dev"
+[env.production.vars]
+CLIENT_URL = "https://dccdle.pages.dev"

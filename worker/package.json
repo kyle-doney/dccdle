@@ -4,11 +4,11 @@
   "type": "module",
   "scripts": {
     "dev":              "wrangler dev",
-    "deploy":           "wrangler deploy",
+    "deploy":           "wrangler deploy --env=\"\"",
     "db:schema":        "wrangler d1 execute dccdle-db --local --file=./migrations/0001_schema.sql",
     "db:seed":          "node migrations/generate-seed.js && wrangler d1 execute dccdle-db --local --file=./migrations/seed.sql",
-    "db:schema:remote": "wrangler d1 execute dccdle-db --file=./migrations/0001_schema.sql",
-    "db:seed:remote":   "node migrations/generate-seed.js && wrangler d1 execute dccdle-db --file=./migrations/seed.sql"
+    "db:schema:remote": "wrangler d1 execute dccdle-db --remote --file=./migrations/0001_schema.sql",
+    "db:seed:remote":   "node migrations/generate-seed.js && wrangler d1 execute dccdle-db --remote --file=./migrations/seed.sql"
   },
   "dependencies": {
     "hono": "^4.4.0"
