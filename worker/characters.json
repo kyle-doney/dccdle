@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Carl",
+    "race": ["Human", "Primal"],
+    "role": "Crawler",
+    "origin": "Earth",
+    "affiliation": ["Princess Posse"],
+    "book_intro": 1
+  },
+  {
+    "name": "Princess Donut",
+    "race": "Cat",
+    "role": "Crawler",
+    "origin": "Earth",
+    "affiliation": ["Team Donut"],
+    "book_intro": 1
+  },
+  {
+    "name": "Mordecai",
+    "race": "Bopca",
+    "role": "Trainer",
+    "origin": "Dungeon",
+    "affiliation": ["Team Donut"],
+    "book_intro": 1
+  }
+]

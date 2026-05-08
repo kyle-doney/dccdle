@@ -1,0 +1,35 @@
+/* index.css - Global styles for the entire app.
+   Tailwind injects its base/component/utility classes here.
+   Custom animations are defined below since Tailwind can't do keyframes inline. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Force dark color scheme so the browser doesn't apply any light-mode overrides */
+:root { color-scheme: dark; }
+
+/* Base page styles - dark dungeon background with a warm off-white text color */
+body {
+  background-color: #0d0d0f;
+  color: #e8e0d0;
+  font-family: 'Crimson Pro', serif;
+  min-height: 100vh;
+}
+
+/* flip-in - rotates a tile back and forth around the X axis (like a card flip).
+   Used on result tiles when a new guess is revealed. */
+@keyframes flip-in {
+  0%   { transform: rotateX(0deg); }
+  50%  { transform: rotateX(-90deg); }  /* halfway: tile is invisible edge-on */
+  100% { transform: rotateX(0deg); }
+}
+.tile-flip { animation: flip-in 0.5s ease-in-out; }
+
+/* glow-pulse - makes the win box breathe with a golden glow.
+   Loops forever so the player knows something special happened. */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px #c9a84c55; }
+  50%       { box-shadow: 0 0 24px #c9a84c99; }
+}
+.gold-glow { animation: glow-pulse 2s ease-in-out infinite; }
