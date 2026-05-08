@@ -13,7 +13,12 @@ const app = new Hono();
 // Allow requests from the frontend. In production, CLIENT_URL is set in wrangler.toml.
 // In local dev it falls back to the Vite dev server address.
 app.use("/api/*", cors({
-  origin: (origin, c) => c.env.CLIENT_URL || "http://localhost:5173",
+  origin: (origin, c) => {
+    const allowed = c.env.CLIENT_URL || "http://localhost:5173";
+    return origin === allowed ? origin : allowed;
+  },
+  allowMethods: ["GET", "POST", "OPTIONS"],
+  allowHeaders: ["Content-Type"],
 }));
 
 // ── Routes ──────────────────────────────────────────────────────────────────
